@@ -1,6 +1,5 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -292,46 +291,12 @@ export function PageNotFound() {
             <p className='mb-4 p-2 text-sm text-[#45a6e9] md:text-base'>
               The stuff you were looking for doesn&apos;t exist
             </p>
-            {pathname === '/' ? (
-              seedingStatus ? (
-                <>
-                  <div className='absolute left-0 top-0 w-full'>
-                    <div className='h-1.5 w-full overflow-hidden bg-pink-100'>
-                      <div className='h-full w-full origin-left-right animate-progress bg-[#45a6e9]'></div>
-                    </div>
-                  </div>
-                  <motion.div
-                    className='mt-4 rounded-lg border border-gray-300 bg-white p-4 shadow-lg dark:border-slate-700 dark:bg-slate-800'
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}>
-                    <AnimatePresence mode='wait'>
-                      <motion.div
-                        key={seedingStatus}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.5 }}
-                        className='text-2xl font-bold'>
-                        {seedingStatus}
-                        {dots}
-                      </motion.div>
-                    </AnimatePresence>
-                  </motion.div>
-                </>
-              ) : (
-                <button className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
-                  Load demo data
-                </button>
-              )
-            ) : (
-              <button
-                onClick={() => router.refresh()}
-                className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
-                Refresh page
-              </button>
-            )}
+
+            <button
+              onClick={() => window.location.reload()}
+              className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
+              Refresh page
+            </button>
           </div>
         </div>
       </div>
