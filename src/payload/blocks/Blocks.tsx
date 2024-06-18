@@ -1,13 +1,6 @@
-import { Cards } from './Cards'
-import { Container } from './Container_Scroll'
-import { HeroParallax } from './HeroParallax'
-import RichText from './RichText'
-import { Testimonials } from './Testimonials'
+import { Test } from '@/payload/blocks/Test'
 
-// const HeroBanner = dynamic(() => import('./Cards') as Promise<any>)
-// const FeaturedGrid = dynamic(() => import('./Container_Scroll') as Promise<any>)
-// const LogoMarquee = dynamic(() => import('./HeroParallax') as Promise<any>)
-// const Faq = dynamic(() => import('./Testimonials') as Promise<any>)
+// const Test = dynamic(() => import('@/payload/blocks/Test') as Promise<any>)
 
 export type AdditionalBlockProps = {
   blockIndex: number
@@ -15,11 +8,7 @@ export type AdditionalBlockProps = {
 }
 
 const blockComponents = {
-  Cards: Cards,
-  Container: Container,
-  HeroParallax: HeroParallax,
-  Testimonials: Testimonials,
-  RichText: RichText,
+  Test,
 }
 
 const Blocks = ({ blocks, locale }: any) => {
