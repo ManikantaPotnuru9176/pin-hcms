@@ -52,7 +52,8 @@ export const CardContainer = ({
         className={cn(containerClassName)}
         style={{
           perspective: '1000px',
-        }}>
+        }}
+      >
         <div
           ref={containerRef}
           onMouseEnter={handleMouseEnter}
@@ -64,7 +65,8 @@ export const CardContainer = ({
           )}
           style={{
             transformStyle: 'preserve-3d',
-          }}>
+          }}
+        >
           {children}
         </div>
       </div>
@@ -84,7 +86,8 @@ export const CardBody = ({
       className={cn(
         'h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]',
         className,
-      )}>
+      )}
+    >
       {children}
     </div>
   )
@@ -133,7 +136,8 @@ export const CardItem = ({
     <Tag
       ref={ref}
       className={cn('w-fit transition duration-200 ease-linear', className)}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </Tag>
   )
@@ -164,13 +168,15 @@ export function ThreeDCardDemo({ item }: { item: Blog }) {
         </CardItem>
         <CardItem
           translateZ='50'
-          className='line-clamp-1 text-xl font-bold text-neutral-600 dark:text-white'>
+          className='line-clamp-1 text-xl font-bold text-neutral-600 dark:text-white'
+        >
           {item?.title}
         </CardItem>
         <CardItem
           as='p'
           translateZ='60'
-          className='mt-2 line-clamp-3 max-w-sm text-sm text-neutral-500 dark:text-neutral-300'>
+          className='mt-2 line-clamp-3 max-w-sm text-sm text-neutral-500 dark:text-neutral-300'
+        >
           {item?.sub_title}
         </CardItem>
       </CardBody>

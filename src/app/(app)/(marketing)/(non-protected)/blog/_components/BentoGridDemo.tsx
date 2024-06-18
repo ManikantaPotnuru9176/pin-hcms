@@ -24,7 +24,8 @@ export function BentoGridDemo({ blogsData }: { blogsData: Blog[] }) {
             blog={blog}
             header={
               <DirectionAwareHover
-                imageUrl={(blog?.blog_image as Media)?.url || ''}>
+                imageUrl={(blog?.blog_image as Media)?.url || ''}
+              >
                 <p className='text-md font-semibold'>
                   {readingTime(blog?.description_html)?.text}
                 </p>
@@ -153,13 +154,15 @@ export const DirectionAwareHover = ({
       className={cn(
         'group/card relative flex h-full min-h-[10rem] w-full flex-1 overflow-hidden rounded-t-xl bg-transparent bg-white dark:bg-black',
         className,
-      )}>
+      )}
+    >
       <AnimatePresence mode='wait'>
         <motion.div
           className='relative h-full w-full'
           initial='initial'
           whileHover={direction}
-          exit='exit'>
+          exit='exit'
+        >
           <motion.div className='absolute inset-0 z-10 hidden h-full w-full bg-black/40 transition duration-500 group-hover/card:block' />
           <motion.div
             variants={variants}
@@ -167,7 +170,8 @@ export const DirectionAwareHover = ({
             transition={{
               duration: 0.2,
               ease: 'easeOut',
-            }}>
+            }}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt='image'
@@ -189,7 +193,8 @@ export const DirectionAwareHover = ({
             className={cn(
               'absolute bottom-4 left-4 z-40 text-white',
               childrenClassName,
-            )}>
+            )}
+          >
             {children}
           </motion.div>
         </motion.div>

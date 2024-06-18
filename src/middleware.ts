@@ -1,6 +1,6 @@
 import type { JWT } from '@auth/core/jwt'
 import { parseCookie } from 'next/dist/compiled/@edge-runtime/cookies'
-import { NextResponse, type NextRequest } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 import { match } from 'path-to-regexp'
 
 import authConfig, { SESSION_STRATEGY } from '@/lib/auth/config'

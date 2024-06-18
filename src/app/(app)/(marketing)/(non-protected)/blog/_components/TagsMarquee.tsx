@@ -21,7 +21,8 @@ const ReviewCard = ({ tag }: { tag: TagsDetails }) => {
         'relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4',
         'border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]',
         'dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]',
-      )}>
+      )}
+    >
       <div className='flex flex-row items-center justify-between'>
         <div className='flex flex-row items-center gap-2 pb-2'>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -93,7 +94,8 @@ function Marquee({
           'flex-col': vertical,
         },
         className,
-      )}>
+      )}
+    >
       {Array(repeat)
         .fill(0)
         .map((_, i) => (
@@ -104,7 +106,8 @@ function Marquee({
               'animate-marquee-vertical flex-col': vertical,
               'group-hover:[animation-play-state:paused]': pauseOnHover,
               '[animation-direction:reverse]': reverse,
-            })}>
+            })}
+          >
             {children}
           </div>
         ))}

@@ -55,7 +55,8 @@ export const BentoGrid = ({
       className={cn(
         'mx-auto grid max-w-7xl grid-flow-row-dense grid-cols-1 gap-8 md:auto-rows-[28rem] md:grid-cols-2 xl:grid-cols-3',
         className,
-      )}>
+      )}
+    >
       {children}
     </div>
   )
@@ -84,7 +85,8 @@ export const BentoGridItem = ({
       )}
       onClick={() => {
         router.push(`/blog/${slug}`)
-      }}>
+      }}
+    >
       <BorderBeam className='hidden group-hover:block' />
       {header}
       <div className='p-4'>
@@ -112,7 +114,8 @@ export const BentoGridItem = ({
             {blog?.tags?.slice(0, 2)?.map((tag, idx) => (
               <span
                 key={idx}
-                className={`${getTagColors({ color: (tag?.value as Tag)?.color || 'blue' })} me-2 rounded px-2.5 py-0.5 text-xs font-medium`}>
+                className={`${getTagColors({ color: (tag?.value as Tag)?.color || 'blue' })} me-2 rounded px-2.5 py-0.5 text-xs font-medium`}
+              >
                 {(tag?.value as Tag)?.title}
               </span>
             ))}

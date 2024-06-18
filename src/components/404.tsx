@@ -69,7 +69,8 @@ export function PageNotFound() {
                 height='379'
                 viewBox='0 0 631 379'
                 fill='none'
-                xmlns='http://www.w3.org/2000/svg'>
+                xmlns='http://www.w3.org/2000/svg'
+              >
                 <g clip-path='url(#clip0)'>
                   <path
                     d='M317.524 379C488.625 379 627.33 368.857 627.33 356.346C627.33 343.834 488.625 333.692 317.524 333.692C146.423 333.692 7.71875 343.834 7.71875 356.346C7.71875 368.857 146.423 379 317.524 379Z'
@@ -331,7 +332,7 @@ export function PageNotFound() {
                 <>
                   <div className='absolute left-0 top-0 w-full'>
                     <div className='h-1.5 w-full overflow-hidden bg-pink-100'>
-                      <div className='animate-progress origin-left-right h-full w-full bg-[#45a6e9]'></div>
+                      <div className='h-full w-full origin-left-right animate-progress bg-[#45a6e9]'></div>
                     </div>
                   </div>
                   <motion.div
@@ -339,7 +340,8 @@ export function PageNotFound() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}>
+                    transition={{ duration: 0.5 }}
+                  >
                     <AnimatePresence mode='wait'>
                       <motion.div
                         key={seedingStatus}
@@ -347,7 +349,8 @@ export function PageNotFound() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5 }}
-                        className='text-2xl font-bold'>
+                        className='text-2xl font-bold'
+                      >
                         {seedingStatus}
                         {dots}
                       </motion.div>
@@ -357,14 +360,16 @@ export function PageNotFound() {
               ) : (
                 <button
                   onClick={() => seedData()}
-                  className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
+                  className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'
+                >
                   Load demo data
                 </button>
               )
             ) : (
               <button
                 onClick={() => router.refresh()}
-                className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
+                className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'
+              >
                 Refresh page
               </button>
             )}

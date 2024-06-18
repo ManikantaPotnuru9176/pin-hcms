@@ -1,8 +1,7 @@
 import { redirect } from 'next/navigation'
 
-import { getCurrentUser } from '@/lib/payload'
-
 import ProfileForm from '@/components/ProfileForm'
+import { getCurrentUser } from '@/lib/payload'
 
 const ProfilePage = async () => {
   const user = await getCurrentUser()
@@ -17,7 +16,8 @@ const ProfilePage = async () => {
 
           <a
             href='/profile'
-            className='flex items-center rounded-full border px-3 py-2.5 font-semibold'>
+            className='flex items-center rounded-full border px-3 py-2.5 font-semibold'
+          >
             Account Settings
           </a>
         </div>

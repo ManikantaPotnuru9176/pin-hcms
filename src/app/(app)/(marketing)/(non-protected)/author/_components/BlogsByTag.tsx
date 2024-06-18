@@ -34,7 +34,8 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
           {blog?.tags?.map((tag, index) => (
             <div
               className={`rounded-lg  px-2 py-1 text-sm font-semibold uppercase ${getTagColors({ color: (tag?.value as Tag)?.color || 'blue' })}`}
-              key={index}>
+              key={index}
+            >
               {(tag?.value as Tag)?.title}
             </div>
           ))}

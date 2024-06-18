@@ -53,7 +53,8 @@ const RenderBlocks: React.FC<RenderBlocksProps> = ({
           return (
             <div
               key={index}
-              className={`${index % 2 === 0 ? 'bg-transparent' : 'bg-[#26304e]'}`}>
+              className={`${index % 2 === 0 ? 'bg-transparent' : 'bg-[#26304e]'}`}
+            >
               <Block {...block} />
             </div>
           )

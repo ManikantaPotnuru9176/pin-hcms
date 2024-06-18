@@ -65,7 +65,8 @@ export const SwipeCarousel = ({ blogsData }: { blogsData: Blog[] }) => {
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className='flex cursor-grab items-center active:cursor-grabbing'>
+        className='flex cursor-grab items-center active:cursor-grabbing'
+      >
         <Blogs imgIndex={imgIndex} blogsData={blogsData} />
       </motion.div>
 
@@ -95,7 +96,8 @@ const Blogs = ({
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className='aspect-video w-full shrink-0'>
+            className='aspect-video w-full shrink-0'
+          >
             <HomeThreeDCard item={imgSrc} />
           </motion.div>
         )

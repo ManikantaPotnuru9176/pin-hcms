@@ -31,7 +31,8 @@ const Tags = ({ tags }: { tags: Tag[] }) => {
         {tags?.map((tag, index) => (
           <div className='flex flex-row items-center gap-x-4' key={index}>
             <div
-              className={`h-6 w-6 rounded-md bg-green-500 text-center ${getTagColors({ color: tag?.color || 'blue' })}`}>
+              className={`h-6 w-6 rounded-md bg-green-500 text-center ${getTagColors({ color: tag?.color || 'blue' })}`}
+            >
               {index + 1}
             </div>
             <div className='cursor-pointer'>{tag?.title}</div>
@@ -50,7 +51,8 @@ const Blogs = ({ blogsData }: { blogsData: Blog[] }) => {
       ))}
       <Link
         href='cql/welcome'
-        className='mt-10 rounded-full bg-indigo-600 px-4 py-2 text-center text-white hover:bg-indigo-500'>
+        className='mt-10 rounded-full bg-indigo-600 px-4 py-2 text-center text-white hover:bg-indigo-500'
+      >
         View All
       </Link>
     </div>
@@ -63,7 +65,8 @@ const BlogCard = ({ blogData }: { blogData: Blog }) => {
     <section className='flex min-h-56 w-full flex-col gap-4 overflow-hidden rounded-3xl  border-[1px] p-5 text-gray-900 shadow-md dark:text-white lg:flex-row'>
       <div className='relative flex w-[10rem] flex-row justify-center gap-y-4 md:flex-col'>
         <div
-          className={`${getTagColors({ color: (blogData?.tags?.at(0)?.value as Tag)?.color || 'blue' })} absolute -left-6 top-0 cursor-pointer rounded-r-full py-2 pl-6 pr-2 font-bold transition-all duration-300 ease-in hover:pl-8`}>
+          className={`${getTagColors({ color: (blogData?.tags?.at(0)?.value as Tag)?.color || 'blue' })} absolute -left-6 top-0 cursor-pointer rounded-r-full py-2 pl-6 pr-2 font-bold transition-all duration-300 ease-in hover:pl-8`}
+        >
           {(blogData?.tags?.at(-1)?.value as Tag)?.title}
         </div>
         <div className='flex items-center space-x-4 text-gray-400'>
@@ -81,7 +84,8 @@ const BlogCard = ({ blogData }: { blogData: Blog }) => {
       <div className='flex w-full flex-col justify-between gap-y-6 text-left md:w-[45rem]'>
         <Link
           href={`/blog/${blogData?.slug}`}
-          className='line-clamp-1 text-2xl font-extrabold hover:underline '>
+          className='line-clamp-1 text-2xl font-extrabold hover:underline '
+        >
           {blogData?.title}
         </Link>
         <div className='text-md line-clamp-3'>{blogData?.sub_title}</div>
@@ -90,7 +94,8 @@ const BlogCard = ({ blogData }: { blogData: Blog }) => {
             {blogData?.tags?.map((tag, index) => (
               <div
                 className='group flex cursor-pointer items-center justify-center space-x-2'
-                key={index}>
+                key={index}
+              >
                 <div
                   className={`h-2 w-2 rounded-full ${getTagColors({ color: (tag?.value as Tag)?.color || 'blue' })}`}
                 />

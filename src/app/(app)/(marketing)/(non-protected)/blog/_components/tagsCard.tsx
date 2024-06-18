@@ -44,7 +44,8 @@ function TagsCard({ tags }: { tags: Tags[] }) {
             }}
             custom={index}
             onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}>
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
             <AnimatePresence>
               {hoveredIndex === index && (
                 <motion.span
