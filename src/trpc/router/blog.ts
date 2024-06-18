@@ -8,7 +8,7 @@ const payload = await getPayloadHMR({
   config: configPromise,
 })
 
-export const getBlogs = router({
+export const blogRouter = router({
   getAllBlogs: publicProcedure.query(async () => {
     try {
       const { docs } = await payload.find({

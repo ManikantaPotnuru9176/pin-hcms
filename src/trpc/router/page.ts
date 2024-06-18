@@ -10,14 +10,14 @@ import ensurePath from '@/utils/ensurePath'
 const payload = await getPayloadHMR({
   config: configPromise,
 })
-export const getLayouts = router({
+
+export const pageRouter = router({
   getPageData: publicProcedure
     .input(
       z.object({
         path: z.any(),
       }),
     )
-
     .query(async ({ input }) => {
       try {
         let { path } = input
@@ -39,6 +39,7 @@ export const getLayouts = router({
         console.log(error)
       }
     }),
+
   getAllPages: publicProcedure.query(async () => {
     try {
       const { docs } = await payload.find({

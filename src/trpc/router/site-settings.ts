@@ -7,7 +7,7 @@ const payload = await getPayloadHMR({
   config: configPromise,
 })
 
-export const getSiteSettings = router({
+export const siteSettingsRouter = router({
   getSiteSettings: publicProcedure.query(async () => {
     try {
       const data = await payload.findGlobal({
