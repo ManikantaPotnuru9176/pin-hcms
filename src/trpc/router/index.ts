@@ -1,7 +1,6 @@
 import { publicProcedure, router } from '@/trpc'
 import { getBlogs } from '@/trpc/router/blog-router'
 import { getLayouts } from '@/trpc/router/page-router'
-import { seedRouter } from '@/trpc/router/seed'
 import { getSiteSettings } from '@/trpc/router/site-settings-router'
 import { todoRouter } from '@/trpc/router/todo'
 
@@ -13,7 +12,6 @@ export const appRouter = router({
   page: getLayouts,
   blog: getBlogs,
   SiteSettings: getSiteSettings,
-  seed: seedRouter,
   tag: tagRouter,
   author: authorRouter,
   test: publicProcedure.query(async () => {

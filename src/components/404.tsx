@@ -4,8 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import { trpc } from '@/trpc/client'
-
 export function PageNotFound() {
   const [seedingStatus, setSeedingStatus] = useState('')
   const [dots, setDots] = useState('')
@@ -26,38 +24,6 @@ export function PageNotFound() {
     return () => clearInterval(interval)
   }, [])
 
-  const { mutate: seedMutate } = trpc.seed.startSeeding.useMutation({
-    onMutate: async () => {
-      setSeedingStatus('Seeding process started')
-      setTimeout(() => {
-        setSeedingStatus('Seeding is ongoing')
-      }, 1000)
-    },
-    onSuccess: () => {
-      setTimeout(() => {
-        setSeedingStatus('Seeding process completed')
-        setTimeout(() => {
-          setSeedingStatus('Refreshing current page')
-          setTimeout(() => {
-            window.location.reload()
-          }, 2000)
-        }, 2000)
-      }, 700)
-    },
-    onError: () => {
-      setTimeout(() => {
-        setSeedingStatus('Seeding process failed')
-        setTimeout(() => {
-          setSeedingStatus('')
-        }, 1000)
-      }, 700)
-    },
-  })
-
-  const seedData = () => {
-    seedMutate()
-  }
-
   return (
     <section>
       <div className='bg-black text-white'>
@@ -69,8 +35,7 @@ export function PageNotFound() {
                 height='379'
                 viewBox='0 0 631 379'
                 fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
+                xmlns='http://www.w3.org/2000/svg'>
                 <g clip-path='url(#clip0)'>
                   <path
                     d='M317.524 379C488.625 379 627.33 368.857 627.33 356.346C627.33 343.834 488.625 333.692 317.524 333.692C146.423 333.692 7.71875 343.834 7.71875 356.346C7.71875 368.857 146.423 379 317.524 379Z'
@@ -340,8 +305,7 @@ export function PageNotFound() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                  >
+                    transition={{ duration: 0.5 }}>
                     <AnimatePresence mode='wait'>
                       <motion.div
                         key={seedingStatus}
@@ -349,8 +313,7 @@ export function PageNotFound() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.5 }}
-                        className='text-2xl font-bold'
-                      >
+                        className='text-2xl font-bold'>
                         {seedingStatus}
                         {dots}
                       </motion.div>
@@ -358,18 +321,14 @@ export function PageNotFound() {
                   </motion.div>
                 </>
               ) : (
-                <button
-                  onClick={() => seedData()}
-                  className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'
-                >
+                <button className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
                   Load demo data
                 </button>
               )
             ) : (
               <button
                 onClick={() => router.refresh()}
-                className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'
-              >
+                className='rounded border border-[#45a6e9] bg-transparent px-4 py-2 text-[#45a6e9] shadow hover:border-transparent hover:bg-[#45a6e9] hover:text-white hover:shadow-lg'>
                 Refresh page
               </button>
             )}
